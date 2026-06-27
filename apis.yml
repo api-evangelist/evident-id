@@ -1,0 +1,155 @@
+aid: evident-id
+url: https://raw.githubusercontent.com/api-evangelist/evident-id/refs/heads/main/apis.yml
+name: Evident
+kind: company
+description: Evident (Evident ID) is an identity and credential verification platform
+  that lets businesses verify identity, background, certifications, licenses, and
+  insurance (Certificate of Insurance / COI) on third parties through a single REST
+  API. Its VerifyAPI and SubmitAPI orchestrate verification requests across thousands
+  of attributes and authoritative data sources, returning fact-checked results with
+  webhook notifications.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Identity Verification
+- Credential Verification
+- Background Check
+- Insurance Verification
+- COI
+created: '2026-06-25'
+modified: '2026-06-25'
+specificationVersion: '0.19'
+apis:
+- aid: evident-id:evident-id-verification-requests-api
+  name: Evident Verification Requests API
+  tags:
+  - Verification
+  - Requests
+  - VerifyAPI
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.evidentid.com/api-documentation-developers/
+  baseURL: https://verify.api.evidentid.com/api/v1
+  properties:
+  - url: https://www.evidentid.com/api-documentation-developers/
+    type: Documentation
+  - url: https://docs.evidentid.com/v1
+    type: APIReference
+  - url: openapi/evident-id-openapi.yml
+    type: OpenAPI
+  description: VerifyAPI is a RESTful JSON API for creating a verification request
+    and retrieving information about an existing request. A request is composed of
+    one or more requested attributes describing what should be verified about an
+    individual or business.
+- aid: evident-id:evident-id-attributes-credentials-api
+  name: Evident Attributes & Credentials API
+  tags:
+  - Attributes
+  - Credentials
+  - Submission
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.evidentid.com/api-documentation-developers/
+  baseURL: https://submit.api.evidentid.com/api/v1
+  properties:
+  - url: https://www.evidentid.com/api-documentation-developers/
+    type: Documentation
+  - url: https://docs.evidentid.com/v1
+    type: APIReference
+  - url: openapi/evident-id-openapi.yml
+    type: OpenAPI
+  description: SubmitAPI accepts the personal data and credentials needed to satisfy
+    a verification request (for example name and certificate number for a certification
+    attribute), authenticated with the userIdentityToken bearer token returned by
+    VerifyAPI.
+- aid: evident-id:evident-id-identity-assurance-api
+  name: Evident Identity Assurance API
+  tags:
+  - Identity
+  - Assurance
+  - Background Check
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.evidentid.com/api-documentation-developers/
+  baseURL: https://verify.api.evidentid.com/api/v1
+  properties:
+  - url: https://www.evidentid.com/api-documentation-developers/
+    type: Documentation
+  - url: https://docs.evidentid.com/v1
+    type: APIReference
+  - url: openapi/evident-id-openapi.yml
+    type: OpenAPI
+  description: Identity, background, and credential assurance expressed as verifiable
+    attributes - the platform can verify thousands of attributes about an individual
+    drawn from authoritative data sources through a single API.
+- aid: evident-id:evident-id-insurance-coi-api
+  name: Evident Insurance & COI Verification API
+  tags:
+  - Insurance
+  - COI
+  - Certificate of Insurance
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.evidentid.com/api-documentation-developers/
+  baseURL: https://verify.api.evidentid.com/api/v1
+  properties:
+  - url: https://www.evidentid.com/api-documentation-developers/
+    type: Documentation
+  - url: https://docs.evidentid.com/v1
+    type: APIReference
+  - url: openapi/evident-id-openapi.yml
+    type: OpenAPI
+  description: Insurance, contract, and Certificate of Insurance (COI) verification
+    modeled as verification-request attributes, enabling automated checks of coverage
+    and credentials on suppliers and third parties.
+- aid: evident-id:evident-id-results-api
+  name: Evident Results API
+  tags:
+  - Results
+  - Status
+  - Reports
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.evidentid.com/api-documentation-developers/
+  baseURL: https://verify.api.evidentid.com/api/v1
+  properties:
+  - url: https://www.evidentid.com/api-documentation-developers/
+    type: Documentation
+  - url: https://docs.evidentid.com/v1
+    type: APIReference
+  - url: openapi/evident-id-openapi.yml
+    type: OpenAPI
+  description: Retrieve the status and results of a verification request. Each requested
+    attribute is paired with a result object carrying a status, type, and a values
+    array whose first value reflects the most recent fact-checked submission.
+- aid: evident-id:evident-id-webhooks-api
+  name: Evident Webhooks API
+  tags:
+  - Webhooks
+  - Events
+  - Notifications
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.evidentid.com/api-documentation-developers/
+  baseURL: https://verify.api.evidentid.com/api/v1
+  properties:
+  - url: https://www.evidentid.com/api-documentation-developers/
+    type: Documentation
+  - url: https://docs.evidentid.com/v1
+    type: APIReference
+  - url: openapi/evident-id-openapi.yml
+    type: OpenAPI
+  description: Webhook callbacks notify your server of request lifecycle events -
+    rpRequestCreated, rpRequestSubmissionCompleted, rpRequestCompleted, rpRequestTimeout,
+    and notificationFailure - each payload carrying an eventType and the rpRequestId.
+common:
+- type: GitHubOrganization
+  url: https://github.com/evidentid
+- type: LinkedIn
+  url: https://www.linkedin.com/company/evident-id
+- type: Website
+  url: https://www.evidentid.com
+- type: Documentation
+  url: https://docs.evidentid.com/v1
+- type: Plans
+  url: plans/evident-id-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/evident-id-rate-limits.yml
+- type: FinOps
+  url: finops/evident-id-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

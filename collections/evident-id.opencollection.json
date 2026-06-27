@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Evident VerifyAPI and SubmitAPI",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VerifyAPI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a verification request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://verify.api.evidentid.com/api/v1/verify/requests",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{apiKey}}"
+            },
+            "body": {
+              "type": "json",
+              "data": "{\n  \"email\": \"user@example.com\",\n  \"summary\": \"Verification request\",\n  \"description\": \"Please verify the requested attributes.\",\n  \"userAuthenticationType\": \"blindtrust\",\n  \"attributesRequested\": [ { \"attributeType\": \"identity_assurance\" } ]\n}"
+            }
+          },
+          "docs": "Create a request to verify one or more attributes (identity, credential, or insurance / COI) for an end user. Returns id, idOwnerId, and a userIdentityToken."
+        },
+        {
+          "info": {
+            "name": "Retrieve a verification request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://verify.api.evidentid.com/api/v1/verify/requests/{{requestId}}",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{apiKey}}"
+            }
+          },
+          "docs": "Retrieve an existing verification request by id, including the status, type, and values of each requested attribute."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SubmitAPI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit personal data for a request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://submit.api.evidentid.com/api/v1/requests",
+            "auth": {
+              "type": "bearer",
+              "token": "{{userIdentityToken}}"
+            },
+            "body": {
+              "type": "json",
+              "data": "{\n  \"inputs\": [ { \"type\": \"name\", \"value\": \"Jane Doe\" } ]\n}"
+            }
+          },
+          "docs": "Send the personal data and credentials needed to satisfy a verification request. Authenticated with the userIdentityToken bearer token returned by VerifyAPI."
+        }
+      ]
+    }
+  ]
+}

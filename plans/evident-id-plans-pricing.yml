@@ -1,0 +1,121 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Evident
+providerId: evident-id
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Identity Verification
+- Credential Verification
+- Background Check
+- Insurance Verification
+- COI
+- Plans
+description: >-
+  Evident's pricing is sales-led and quote-based. Published material describes
+  a flexible Pay As You Go option for growing small businesses and Essential,
+  Pro, and Enterprise tiers for COI tracking and verification, with discounted
+  pricing for businesses requiring 10 or more verifications per month and
+  customized pilots for enterprises. No per-call or per-verification list
+  prices are publicly published, so the entries below are not reconciled and
+  must be confirmed with Evident sales.
+notes: >-
+  Tier names are drawn from Evident's public pricing pages; concrete unit
+  prices are not published. Contact sales@evidentid.com for a quote.
+sources:
+- https://www.evidentid.com/pricing/
+- https://www.evidentid.com/pricing-contact/
+- https://www.evidentid.com/contact-sales/
+plans:
+- id: evident-id-pay-as-you-go
+  name: Pay As You Go
+  type: usage
+  description: >-
+    Flexible usage-based plan aimed at growing small businesses, billed per
+    verification.
+  entries:
+  - label: Per Verification
+    name: per_verification
+    type: usage
+    metric: verifications
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Identity Verification
+  - name: Credential Verification
+  - name: Insurance / COI Verification
+- id: evident-id-essential
+  name: Essential
+  type: subscription
+  description: >-
+    Automated COI tracking for common insurance requirements and verification
+    of coverage and critical details for common lines (general liability, auto,
+    workers' comp, umbrella, property).
+  entries:
+  - label: Essential Plan
+    name: essential
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Automated COI Tracking
+  - name: Common Line Coverage Verification
+- id: evident-id-pro
+  name: Pro
+  type: subscription
+  description: >-
+    Adds verification of specialized credentials, trade licenses,
+    FCRA-compliant background checks, MVR spot checks, and professional
+    licenses and certifications.
+  entries:
+  - label: Pro Plan
+    name: pro
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Specialized Credential Verification
+  - name: Background Checks
+  - name: MVR Checks
+  - name: License and Certification Verification
+- id: evident-id-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Customized pilots and packages for enterprises, including verification
+    across 40+ insurance lines and 100+ countries, integrations, and
+    negotiated terms.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Volume Pricing
+  - name: Global Insurance Line Coverage
+  - name: Integrations and SDKs
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

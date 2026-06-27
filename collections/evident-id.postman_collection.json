@@ -1,0 +1,115 @@
+{
+  "info": {
+    "name": "Evident VerifyAPI and SubmitAPI",
+    "description": "Evident (Evident ID) VerifyAPI and SubmitAPI - create and retrieve identity, credential, and insurance (COI) verification requests, and submit personal data for a request. VerifyAPI uses HTTP Basic Auth (username + API key); SubmitAPI uses the userIdentityToken bearer token returned by VerifyAPI.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "verifyBaseUrl",
+      "value": "https://verify.api.evidentid.com/api/v1"
+    },
+    {
+      "key": "submitBaseUrl",
+      "value": "https://submit.api.evidentid.com/api/v1"
+    },
+    {
+      "key": "username",
+      "value": ""
+    },
+    {
+      "key": "apiKey",
+      "value": ""
+    },
+    {
+      "key": "userIdentityToken",
+      "value": ""
+    },
+    {
+      "key": "requestId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "VerifyAPI",
+      "item": [
+        {
+          "name": "Create a verification request",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{username}}", "type": "string" },
+                { "key": "password", "value": "{{apiKey}}", "type": "string" }
+              ]
+            },
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"summary\": \"Verification request\",\n  \"description\": \"Please verify the requested attributes.\",\n  \"userAuthenticationType\": \"blindtrust\",\n  \"attributesRequested\": [\n    { \"attributeType\": \"identity_assurance\" }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{verifyBaseUrl}}/verify/requests",
+              "host": ["{{verifyBaseUrl}}"],
+              "path": ["verify", "requests"]
+            },
+            "description": "Create a request to verify one or more attributes (identity, credential, or insurance / COI) for an end user. Returns id, idOwnerId, and a userIdentityToken."
+          }
+        },
+        {
+          "name": "Retrieve a verification request",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{username}}", "type": "string" },
+                { "key": "password", "value": "{{apiKey}}", "type": "string" }
+              ]
+            },
+            "url": {
+              "raw": "{{verifyBaseUrl}}/verify/requests/{{requestId}}",
+              "host": ["{{verifyBaseUrl}}"],
+              "path": ["verify", "requests", "{{requestId}}"]
+            },
+            "description": "Retrieve an existing verification request by id, including the status, type, and values of each requested attribute."
+          }
+        }
+      ]
+    },
+    {
+      "name": "SubmitAPI",
+      "item": [
+        {
+          "name": "Submit personal data for a request",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                { "key": "token", "value": "{{userIdentityToken}}", "type": "string" }
+              ]
+            },
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    { \"type\": \"name\", \"value\": \"Jane Doe\" }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{submitBaseUrl}}/requests",
+              "host": ["{{submitBaseUrl}}"],
+              "path": ["requests"]
+            },
+            "description": "Send the personal data and credentials needed to satisfy a verification request. Authenticated with the userIdentityToken bearer token returned by VerifyAPI."
+          }
+        }
+      ]
+    }
+  ]
+}

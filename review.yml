@@ -1,0 +1,85 @@
+aid: evident-id
+name: Evident
+review:
+  question: Does Evident expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-25'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Evident's documented event mechanism is
+    HTTP webhooks (server-to-server callbacks), not a streaming protocol. Under
+    current API Evangelist scope, plain HTTP webhook callbacks are modeled as
+    REST/OpenAPI concerns rather than AsyncAPI, and no SSE or WebSocket surface
+    is documented to model.
+findings:
+  summary: |
+    Evident (Evident ID) publishes a real, documented REST API surface
+    consisting of VerifyAPI (create and retrieve verification requests) and a
+    companion SubmitAPI (submit personal data for a request). VerifyAPI uses
+    HTTP Basic Auth with a username and API key; SubmitAPI uses a bearer
+    userIdentityToken returned by VerifyAPI. Separate production and sandbox
+    (demo) base URLs and API keys are provided. Asynchronous notification is
+    delivered via HTTP webhooks (rpRequestCreated, rpRequestSubmissionCompleted,
+    rpRequestCompleted, rpRequestTimeout, notificationFailure) with configurable
+    retry behavior. No realtime, bidirectional, or streaming WebSocket
+    (ws:// or wss://) endpoint is documented. The public developer
+    documentation is partner/account oriented and does not enumerate full
+    request/response schemas, so the OpenAPI in this repo summarizes the
+    documented endpoints rather than reproducing an exhaustive schema.
+  availability:
+    publicApi: true
+    selfServeSignup: false
+    note: >-
+      API access is provisioned with issued credentials (production and sandbox
+      API keys). Pricing is sales-led; documentation is public but onboarding is
+      account/partner based.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://verify.api.evidentid.com/api/v1
+      documented: true
+      note: VerifyAPI production base URL; sandbox at https://verify.api.demo.evidentid.com/api/v1.
+    - protocol: REST
+      scheme: https
+      baseURL: https://submit.api.evidentid.com/api/v1
+      documented: true
+      note: SubmitAPI production base URL; sandbox at https://submit.api.demo.evidentid.com/api/v1.
+    - protocol: Webhooks
+      scheme: https
+      documented: true
+      note: HTTP callbacks for request lifecycle events with retry wait time and retry count.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Evident's developer documentation as of the review date.
+  endpointsConfirmedRest:
+    - POST https://verify.api.evidentid.com/api/v1/verify/requests
+    - GET  https://verify.api.evidentid.com/api/v1/verify/requests/{requestId}
+    - POST https://submit.api.evidentid.com/api/v1/requests
+  authentication:
+    - api: VerifyAPI
+      type: HTTP Basic
+      note: Username plus API key; call only from your server.
+    - api: SubmitAPI
+      type: Bearer
+      note: userIdentityToken returned by VerifyAPI.
+sources:
+  - url: https://www.evidentid.com/api-documentation-developers/
+    type: Documentation
+    note: Documents VerifyAPI / SubmitAPI base URLs, Basic/Bearer auth, create/retrieve request endpoints, and webhook events.
+  - url: https://docs.evidentid.com/v1
+    type: APIReference
+    note: Evident's hosted API reference (account/partner oriented).
+  - url: https://github.com/evidentid
+    type: SourceCode
+    note: Public GitHub org including a postman-collections repo for VerifyAPI and SubmitAPI and an example VerifyAPI integration.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    Evident exposes a documented REST API (VerifyAPI + SubmitAPI) with webhook
+    callbacks but no WebSocket or SSE streaming surface, so no AsyncAPI document
+    was created. apis.yml models the verification request, submission, identity
+    assurance, insurance/COI, results, and webhook surfaces over the documented
+    REST endpoints.

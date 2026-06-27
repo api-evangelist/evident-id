@@ -1,0 +1,57 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Evident
+providerId: evident-id
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Identity Verification
+- Credential Verification
+- Background Check
+- Insurance Verification
+- COI
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Evident does not publish specific public rate limits for VerifyAPI or
+  SubmitAPI. Access is account- and partner-provisioned with separate
+  production and sandbox API keys, and usage is governed by the customer's
+  plan and contract rather than by documented per-minute or per-day quotas.
+  Specific limits are not reconciled in this artifact and should be confirmed
+  with Evident.
+notes: >-
+  No numeric rate limits are documented at evidentid.com/api-documentation-developers
+  or docs.evidentid.com/v1 as of the creation date. Confirm any throttling,
+  concurrency, or volume limits directly with Evident during onboarding.
+sources:
+- https://www.evidentid.com/api-documentation-developers/
+- https://docs.evidentid.com/v1
+responseCodes:
+  throttled: 429
+limits:
+- name: VerifyAPI Requests
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: No public per-minute or per-day quota documented; governed by plan / contract.
+- name: SubmitAPI Requests
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: No public quota documented; authenticated per request with userIdentityToken.
+- name: Verifications
+  scope: account
+  metric: verifications
+  limit: see plan / contract
+  notes: Volume governed by the customer's Pay As You Go, Essential, Pro, or Enterprise plan.
+policies:
+- name: Separate Environment Keys
+  description: Distinct API keys are issued for production and sandbox; do not share keys across environments.
+- name: Server-Side Use
+  description: API keys are secrets and must only be used from your server when calling VerifyAPI.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
