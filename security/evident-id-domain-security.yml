@@ -1,0 +1,27 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.evidentid.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 12 12:48:02 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: verify.api.evidentid.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Sep  9 13:35:47 2026 GMT
+  hsts: null
+- host: submit.api.evidentid.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Sep 11 01:59:57 2026 GMT
+  hsts: null
+domains:
+- domain: evidentid.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

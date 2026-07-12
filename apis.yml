@@ -136,6 +136,10 @@ apis:
     rpRequestCreated, rpRequestSubmissionCompleted, rpRequestCompleted, rpRequestTimeout,
     and notificationFailure - each payload carrying an eventType and the rpRequestId.
 common:
+- type: DomainSecurity
+  url: security/evident-id-domain-security.yml
+- type: Authentication
+  url: authentication/evident-id-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/evidentid
 - type: LinkedIn

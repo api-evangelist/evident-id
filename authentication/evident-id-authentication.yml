@@ -1,0 +1,19 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/evident-id-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic Auth using your Evident username and API key (VerifyAPI).
+  sources:
+  - openapi/evident-id-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: Bearer token using the userIdentityToken returned by VerifyAPI (SubmitAPI).
+  sources:
+  - openapi/evident-id-openapi.yml
