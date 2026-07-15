@@ -136,6 +136,8 @@ apis:
     rpRequestCreated, rpRequestSubmissionCompleted, rpRequestCompleted, rpRequestTimeout,
     and notificationFailure - each payload carrying an eventType and the rpRequestId.
 common:
+- type: AgenticAccess
+  url: agentic-access/evident-id-agentic-access.yml
 - type: DomainSecurity
   url: security/evident-id-domain-security.yml
 - type: Authentication
