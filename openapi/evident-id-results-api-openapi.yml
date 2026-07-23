@@ -1,0 +1,76 @@
+openapi: 3.0.1
+info:
+  title: Evident VerifyAPI and Submit Results API
+  description: Specification of Evident (Evident ID) VerifyAPI and SubmitAPI - RESTful JSON APIs for creating and retrieving identity, credential, and insurance (COI) verification requests. VerifyAPI authenticates with HTTP Basic Auth (username and API key); SubmitAPI authenticates with the userIdentityToken bearer token returned by VerifyAPI. Only endpoints documented at https://www.evidentid.com/api-documentation-developers/ are modeled here; Evident's published reference is partner / account oriented, so request and response schemas are summarized rather than exhaustively enumerated.
+  termsOfService: https://www.evidentid.com/terms-conditions/
+  contact:
+    name: Evident Support
+    email: support@evidentid.com
+  version: '1.0'
+servers:
+- url: https://verify.api.evidentid.com/api/v1
+  description: Production VerifyAPI
+- url: https://verify.api.demo.evidentid.com/api/v1
+  description: Sandbox VerifyAPI
+- url: https://submit.api.evidentid.com/api/v1
+  description: Production SubmitAPI
+- url: https://submit.api.demo.evidentid.com/api/v1
+  description: Sandbox SubmitAPI
+tags:
+- name: Results
+paths:
+  /verify/requests/{requestId}:
+    get:
+      operationId: getVerificationRequest
+      tags:
+      - Results
+      summary: Retrieve a verification request
+      description: Retrieve an existing verification request (VerifyAPI) by id, including the status, type, and values of each requested attribute.
+      security:
+      - basicAuth: []
+      parameters:
+      - name: requestId
+        in: path
+        required: true
+        description: Identifier of the verification request.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Verification request details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationRequestResult'
+components:
+  schemas:
+    VerificationRequestResult:
+      type: object
+      properties:
+        id:
+          type: string
+        attributes:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: string
+                description: Verification status of the attribute.
+              type:
+                type: string
+                description: Attribute type.
+              values:
+                type: array
+                description: Verified value(s) for the attribute.
+                items:
+                  type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Auth using your Evident username and API key (VerifyAPI).
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token using the userIdentityToken returned by VerifyAPI (SubmitAPI).
