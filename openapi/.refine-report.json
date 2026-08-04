@@ -1,0 +1,18 @@
+{
+  "provider": "evident-id",
+  "sources": [
+    "evident-id-results-api-openapi.yml",
+    "evident-id-submission-api-openapi.yml",
+    "evident-id-verification-requests-api-openapi.yml"
+  ],
+  "outputs": [
+    "evident-id-results-api-openapi.yml",
+    "evident-id-submission-api-openapi.yml",
+    "evident-id-verification-requests-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

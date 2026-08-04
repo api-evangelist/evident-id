@@ -1,0 +1,185 @@
+openapi: 3.0.1
+info:
+  title: Evident VerifyAPI and SubmitAPI
+  description: >-
+    Specification of Evident (Evident ID) VerifyAPI and SubmitAPI - RESTful
+    JSON APIs for creating and retrieving identity, credential, and insurance
+    (COI) verification requests. VerifyAPI authenticates with HTTP Basic Auth
+    (username and API key); SubmitAPI authenticates with the userIdentityToken
+    bearer token returned by VerifyAPI. Only endpoints documented at
+    https://www.evidentid.com/api-documentation-developers/ are modeled here;
+    Evident's published reference is partner / account oriented, so request and
+    response schemas are summarized rather than exhaustively enumerated.
+  termsOfService: https://www.evidentid.com/terms-conditions/
+  contact:
+    name: Evident Support
+    email: support@evidentid.com
+  version: '1.0'
+servers:
+  - url: https://verify.api.evidentid.com/api/v1
+    description: Production VerifyAPI
+  - url: https://verify.api.demo.evidentid.com/api/v1
+    description: Sandbox VerifyAPI
+  - url: https://submit.api.evidentid.com/api/v1
+    description: Production SubmitAPI
+  - url: https://submit.api.demo.evidentid.com/api/v1
+    description: Sandbox SubmitAPI
+paths:
+  /verify/requests:
+    post:
+      operationId: createVerificationRequest
+      tags:
+        - Verification Requests
+      summary: Create a verification request
+      description: >-
+        Create a request (VerifyAPI) to verify one or more attributes
+        (identity, credentials, or insurance / COI) for an end user. Returns
+        the request id, the end-user identifier (idOwnerId), and a multi-use
+        userIdentityToken used to authenticate to the SubmitAPI.
+      security:
+        - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerificationRequest'
+      responses:
+        '200':
+          description: Verification request created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationRequestCreated'
+  /verify/requests/{requestId}:
+    get:
+      operationId: getVerificationRequest
+      tags:
+        - Verification Requests
+        - Results
+      summary: Retrieve a verification request
+      description: >-
+        Retrieve an existing verification request (VerifyAPI) by id, including
+        the status, type, and values of each requested attribute.
+      security:
+        - basicAuth: []
+      parameters:
+        - name: requestId
+          in: path
+          required: true
+          description: Identifier of the verification request.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Verification request details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationRequestResult'
+  /requests:
+    post:
+      operationId: submitRequestData
+      tags:
+        - Submission
+      summary: Submit personal data for a verification request
+      description: >-
+        Send the personal data and credentials needed to satisfy a verification
+        request (SubmitAPI). Authenticated with the userIdentityToken bearer
+        token returned by VerifyAPI. Use the SubmitAPI server base URL.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmitRequest'
+      responses:
+        '200':
+          description: Submission accepted.
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Auth using your Evident username and API key (VerifyAPI).
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token using the userIdentityToken returned by VerifyAPI (SubmitAPI).
+  schemas:
+    VerificationRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: End-user email address.
+        summary:
+          type: string
+          description: Short summary used as the verification email subject.
+        description:
+          type: string
+          description: Intent of the verification request.
+        userAuthenticationType:
+          type: string
+          description: End-user authentication type, e.g. "blindtrust".
+        attributesRequested:
+          type: array
+          description: Attributes to verify.
+          items:
+            type: object
+            properties:
+              attributeType:
+                type: string
+                description: >-
+                  Identifier of the attribute to verify (identity, credential,
+                  license, background check, or insurance / COI line).
+    VerificationRequestCreated:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Verification request identifier.
+        idOwnerId:
+          type: string
+          description: End-user identifier.
+        userIdentityToken:
+          type: string
+          description: Multi-use token used to authenticate to the SubmitAPI.
+    VerificationRequestResult:
+      type: object
+      properties:
+        id:
+          type: string
+        attributes:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: string
+                description: Verification status of the attribute.
+              type:
+                type: string
+                description: Attribute type.
+              values:
+                type: array
+                description: Verified value(s) for the attribute.
+                items:
+                  type: object
+    SubmitRequest:
+      type: object
+      properties:
+        inputs:
+          type: array
+          description: Personal data values supplied for the verification request.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: Attribute / input type.
+              value:
+                type: string
+                description: Value supplied for the input.
