@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Evident VerifyAPI and Submit Results API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Results",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a verification request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://verify.api.evidentid.com/api/v1/verify/requests/:requestId",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the verification request."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve an existing verification request (VerifyAPI) by id, including the status, type, and values of each requested attribute."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

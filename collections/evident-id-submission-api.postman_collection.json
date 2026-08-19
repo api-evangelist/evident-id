@@ -1,0 +1,131 @@
+{
+  "item": [
+    {
+      "id": "ac883371-d5ec-46df-8e42-d2e9efcec84e",
+      "name": "Submission",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c1b6a7e6-2ed2-48cc-a13a-4b8c01c5ad21",
+          "name": "Submit personal data for a verification request",
+          "request": {
+            "name": "Submit personal data for a verification request",
+            "description": {
+              "content": "Send the personal data and credentials needed to satisfy a verification request (SubmitAPI). Authenticated with the userIdentityToken bearer token returned by VerifyAPI. Use the SubmitAPI server base URL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c76bc190-0553-4a8e-8b90-c7f6c2a5e4a2",
+              "name": "Submission accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputs\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://verify.api.evidentid.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c99e87a6-8db1-412f-9f89-6c5b4cae13d7",
+    "name": "Evident VerifyAPI and Submit Results Submission API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Specification of Evident (Evident ID) VerifyAPI and SubmitAPI - RESTful JSON APIs for creating and retrieving identity, credential, and insurance (COI) verification requests. VerifyAPI authenticates with HTTP Basic Auth (username and API key); SubmitAPI authenticates with the userIdentityToken bearer token returned by VerifyAPI. Only endpoints documented at https://www.evidentid.com/api-documentation-developers/ are modeled here; Evident's published reference is partner / account oriented, so request and response schemas are summarized rather than exhaustively enumerated.\n\nContact Support:\n Name: Evident Support\n Email: support@evidentid.com",
+      "type": "text/plain"
+    }
+  }
+}

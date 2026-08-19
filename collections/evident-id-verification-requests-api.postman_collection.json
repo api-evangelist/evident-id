@@ -1,0 +1,255 @@
+{
+  "item": [
+    {
+      "id": "cdf424dd-5fe9-4ee3-bd5c-aa074f8d4d76",
+      "name": "Verification Requests",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "401ded7b-29c5-4b90-90f2-54f7312300d7",
+          "name": "Create a verification request",
+          "request": {
+            "name": "Create a verification request",
+            "description": {
+              "content": "Create a request (VerifyAPI) to verify one or more attributes (identity, credentials, or insurance / COI) for an end user. Returns the request id, the end-user identifier (idOwnerId), and a multi-use userIdentityToken used to authenticate to the SubmitAPI.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "verify",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userAuthenticationType\": \"<string>\",\n  \"attributesRequested\": [\n    {\n      \"attributeType\": \"<string>\"\n    },\n    {\n      \"attributeType\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fd6b54f3-fe8b-4c15-ba02-a6a197e678f0",
+              "name": "Verification request created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "verify",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userAuthenticationType\": \"<string>\",\n  \"attributesRequested\": [\n    {\n      \"attributeType\": \"<string>\"\n    },\n    {\n      \"attributeType\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"idOwnerId\": \"string\",\n  \"userIdentityToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e53d51f4-2237-4314-a354-756cc6d41520",
+          "name": "Retrieve a verification request",
+          "request": {
+            "name": "Retrieve a verification request",
+            "description": {
+              "content": "Retrieve an existing verification request (VerifyAPI) by id, including the status, type, and values of each requested attribute.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "verify",
+                "requests",
+                ":requestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "requestId",
+                  "description": "(Required) Identifier of the verification request."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8f927fad-d9fe-4e37-864a-2e922ec42cee",
+              "name": "Verification request details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "verify",
+                    "requests",
+                    ":requestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "requestId",
+                      "description": "(Required) Identifier of the verification request."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"attributes\": [\n    {\n      \"status\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://verify.api.evidentid.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0e6cd890-b14d-46b7-968b-097eda7a1492",
+    "name": "Evident VerifyAPI and Submit Results Verification Requests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Specification of Evident (Evident ID) VerifyAPI and SubmitAPI - RESTful JSON APIs for creating and retrieving identity, credential, and insurance (COI) verification requests. VerifyAPI authenticates with HTTP Basic Auth (username and API key); SubmitAPI authenticates with the userIdentityToken bearer token returned by VerifyAPI. Only endpoints documented at https://www.evidentid.com/api-documentation-developers/ are modeled here; Evident's published reference is partner / account oriented, so request and response schemas are summarized rather than exhaustively enumerated.\n\nContact Support:\n Name: Evident Support\n Email: support@evidentid.com",
+      "type": "text/plain"
+    }
+  }
+}

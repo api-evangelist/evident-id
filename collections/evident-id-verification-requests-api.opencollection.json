@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Evident VerifyAPI and Submit Results Verification Requests API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Verification Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a verification request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://verify.api.evidentid.com/api/v1/verify/requests",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Create a request (VerifyAPI) to verify one or more attributes (identity, credentials, or insurance / COI) for an end user. Returns the request id, the end-user identifier (idOwnerId), and a multi-use userIdentityToken used to authenticate to the SubmitAPI."
+        },
+        {
+          "info": {
+            "name": "Retrieve a verification request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://verify.api.evidentid.com/api/v1/verify/requests/:requestId",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the verification request."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve an existing verification request (VerifyAPI) by id, including the status, type, and values of each requested attribute."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
