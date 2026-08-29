@@ -8,6 +8,18 @@ description: Evident (Evident ID) is an identity and credential verification pla
   API. Its VerifyAPI and SubmitAPI orchestrate verification requests across thousands
   of attributes and authoritative data sources, returning fact-checked results with
   webhook notifications.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
