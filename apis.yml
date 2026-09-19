@@ -38,6 +38,12 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/evident-id
 tags:
 - Identity Verification
 - Credential Verification
+- Background Checks
+- Insurance Verification
+- COI
+tags_raw:
+- Identity Verification
+- Credential Verification
 - Background Check
 - Insurance Verification
 - COI
