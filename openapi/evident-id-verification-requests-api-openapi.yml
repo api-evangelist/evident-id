@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Evident VerifyAPI and Submit Results Verification Requests API
-  description: Specification of Evident (Evident ID) VerifyAPI and SubmitAPI - RESTful JSON APIs for creating and retrieving identity, credential, and insurance (COI) verification requests. VerifyAPI authenticates with HTTP Basic Auth (username and API key); SubmitAPI authenticates with the userIdentityToken bearer token returned by VerifyAPI. Only endpoints documented at https://www.evidentid.com/api-documentation-developers/ are modeled here; Evident's published reference is partner / account oriented, so request and response schemas are summarized rather than exhaustively enumerated.
+  title: Evident VerifyAPI and Submit Verification Requests API
+  description: Specification of Evident (Evident ID) VerifyAPI and SubmitAPI - RESTful JSON APIs for creating and retrieving identity, credential, and insurance (COI) verification requests.
   termsOfService: https://www.evidentid.com/terms-conditions/
   contact:
     name: Evident Support
@@ -66,30 +66,6 @@ paths:
                 $ref: '#/components/schemas/VerificationRequestResult'
 components:
   schemas:
-    VerificationRequest:
-      type: object
-      properties:
-        email:
-          type: string
-          description: End-user email address.
-        summary:
-          type: string
-          description: Short summary used as the verification email subject.
-        description:
-          type: string
-          description: Intent of the verification request.
-        userAuthenticationType:
-          type: string
-          description: End-user authentication type, e.g. "blindtrust".
-        attributesRequested:
-          type: array
-          description: Attributes to verify.
-          items:
-            type: object
-            properties:
-              attributeType:
-                type: string
-                description: Identifier of the attribute to verify (identity, credential, license, background check, or insurance / COI line).
     VerificationRequestResult:
       type: object
       properties:
@@ -123,6 +99,30 @@ components:
         userIdentityToken:
           type: string
           description: Multi-use token used to authenticate to the SubmitAPI.
+    VerificationRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: End-user email address.
+        summary:
+          type: string
+          description: Short summary used as the verification email subject.
+        description:
+          type: string
+          description: Intent of the verification request.
+        userAuthenticationType:
+          type: string
+          description: End-user authentication type, e.g. "blindtrust".
+        attributesRequested:
+          type: array
+          description: Attributes to verify.
+          items:
+            type: object
+            properties:
+              attributeType:
+                type: string
+                description: Identifier of the attribute to verify (identity, credential, license, background check, or insurance / COI line).
   securitySchemes:
     basicAuth:
       type: http

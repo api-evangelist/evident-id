@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Evident VerifyAPI and Submit Results Submission API
-  description: Specification of Evident (Evident ID) VerifyAPI and SubmitAPI - RESTful JSON APIs for creating and retrieving identity, credential, and insurance (COI) verification requests. VerifyAPI authenticates with HTTP Basic Auth (username and API key); SubmitAPI authenticates with the userIdentityToken bearer token returned by VerifyAPI. Only endpoints documented at https://www.evidentid.com/api-documentation-developers/ are modeled here; Evident's published reference is partner / account oriented, so request and response schemas are summarized rather than exhaustively enumerated.
+  title: Evident VerifyAPI and Submit Submission API
+  description: Specification of Evident (Evident ID) VerifyAPI and SubmitAPI - RESTful JSON APIs for creating and retrieving identity, credential, and insurance (COI) verification requests.
   termsOfService: https://www.evidentid.com/terms-conditions/
   contact:
     name: Evident Support

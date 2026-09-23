@@ -1,9 +1,7 @@
 {
   "provider": "evident-id",
   "sources": [
-    "evident-id-results-api-openapi.yml",
-    "evident-id-submission-api-openapi.yml",
-    "evident-id-verification-requests-api-openapi.yml"
+    "_original/evident-id-openapi.yml"
   ],
   "outputs": [
     "evident-id-results-api-openapi.yml",
@@ -13,6 +11,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "evident-id-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "evident-id-openapi.yml: declared missing tag: Results",
+    "evident-id-openapi.yml: declared missing tag: Submission",
+    "evident-id-openapi.yml: declared missing tag: Verification Requests",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "evident-id-results-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "evident-id-submission-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "evident-id-verification-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
