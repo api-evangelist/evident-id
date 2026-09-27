@@ -66,39 +66,6 @@ paths:
                 $ref: '#/components/schemas/VerificationRequestResult'
 components:
   schemas:
-    VerificationRequestResult:
-      type: object
-      properties:
-        id:
-          type: string
-        attributes:
-          type: array
-          items:
-            type: object
-            properties:
-              status:
-                type: string
-                description: Verification status of the attribute.
-              type:
-                type: string
-                description: Attribute type.
-              values:
-                type: array
-                description: Verified value(s) for the attribute.
-                items:
-                  type: object
-    VerificationRequestCreated:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Verification request identifier.
-        idOwnerId:
-          type: string
-          description: End-user identifier.
-        userIdentityToken:
-          type: string
-          description: Multi-use token used to authenticate to the SubmitAPI.
     VerificationRequest:
       type: object
       properties:
@@ -123,6 +90,39 @@ components:
               attributeType:
                 type: string
                 description: Identifier of the attribute to verify (identity, credential, license, background check, or insurance / COI line).
+    VerificationRequestCreated:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Verification request identifier.
+        idOwnerId:
+          type: string
+          description: End-user identifier.
+        userIdentityToken:
+          type: string
+          description: Multi-use token used to authenticate to the SubmitAPI.
+    VerificationRequestResult:
+      type: object
+      properties:
+        id:
+          type: string
+        attributes:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: string
+                description: Verification status of the attribute.
+              type:
+                type: string
+                description: Attribute type.
+              values:
+                type: array
+                description: Verified value(s) for the attribute.
+                items:
+                  type: object
   securitySchemes:
     basicAuth:
       type: http
