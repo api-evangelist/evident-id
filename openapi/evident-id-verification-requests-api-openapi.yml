@@ -66,6 +66,27 @@ paths:
                 $ref: '#/components/schemas/VerificationRequestResult'
 components:
   schemas:
+    VerificationRequestResult:
+      type: object
+      properties:
+        id:
+          type: string
+        attributes:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: string
+                description: Verification status of the attribute.
+              type:
+                type: string
+                description: Attribute type.
+              values:
+                type: array
+                description: Verified value(s) for the attribute.
+                items:
+                  type: object
     VerificationRequest:
       type: object
       properties:
@@ -102,27 +123,6 @@ components:
         userIdentityToken:
           type: string
           description: Multi-use token used to authenticate to the SubmitAPI.
-    VerificationRequestResult:
-      type: object
-      properties:
-        id:
-          type: string
-        attributes:
-          type: array
-          items:
-            type: object
-            properties:
-              status:
-                type: string
-                description: Verification status of the attribute.
-              type:
-                type: string
-                description: Attribute type.
-              values:
-                type: array
-                description: Verified value(s) for the attribute.
-                items:
-                  type: object
   securitySchemes:
     basicAuth:
       type: http
