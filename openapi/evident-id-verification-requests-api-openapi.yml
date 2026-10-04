@@ -87,6 +87,18 @@ components:
                 description: Verified value(s) for the attribute.
                 items:
                   type: object
+    VerificationRequestCreated:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Verification request identifier.
+        idOwnerId:
+          type: string
+          description: End-user identifier.
+        userIdentityToken:
+          type: string
+          description: Multi-use token used to authenticate to the SubmitAPI.
     VerificationRequest:
       type: object
       properties:
@@ -111,18 +123,6 @@ components:
               attributeType:
                 type: string
                 description: Identifier of the attribute to verify (identity, credential, license, background check, or insurance / COI line).
-    VerificationRequestCreated:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Verification request identifier.
-        idOwnerId:
-          type: string
-          description: End-user identifier.
-        userIdentityToken:
-          type: string
-          description: Multi-use token used to authenticate to the SubmitAPI.
   securitySchemes:
     basicAuth:
       type: http
