@@ -1,4 +1,4 @@
-# Evident (evident-id)
+# Evident
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,160 +66,119 @@
 
 Evident (Evident ID) is an identity and credential verification platform that lets businesses verify identity, background, certifications, licenses, and insurance (Certificate of Insurance / COI) on third parties through a single REST API. Its VerifyAPI and SubmitAPI orchestrate verification requests across thousands of attributes and authoritative data sources, returning fact-checked results with webhook notifications.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/evident-id/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/evident-id/refs/heads/main/apis.yml)
+**Areas:** Identity Verification · Credential Verification · Background Checks · Insurance Verification · COI
 
-## Tags
+## Evident on APIs.io
 
-- Identity Verification
-- Credential Verification
-- Background Check
-- Insurance Verification
-- COI
+Everything profiled for Evident is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/evident-id/](https://apis.io/providers/evident-id/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (3)
 
-- **Created:** 2026-06-25
-- **Modified:** 2026-06-25
+- [Evident Results API](https://apis.io/apis/evident-id/evident-id-results-api/) — The Results API from Evident — 1 operation(s) for results.
+- [Evident Submission API](https://apis.io/apis/evident-id/evident-id-submission-api/) — The Submission API from Evident — 1 operation(s) for submission.
+- [Evident Verification Requests API](https://apis.io/apis/evident-id/evident-id-verification-requests-api/) — The Verification Requests API from Evident — 2 operation(s) for verification requests.
 
-## APIs
+### Published properties
 
-### Evident Verification Requests API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-VerifyAPI is a RESTful JSON API for creating a verification request and retrieving information about an existing request. A request is composed of one or more requested attributes describing what should be verified about an individual or business.
+#### Agentic access (1)
 
-- **Human URL:** [https://www.evidentid.com/api-documentation-developers/](https://www.evidentid.com/api-documentation-developers/)
-- **Base URL:** `https://verify.api.evidentid.com/api/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Evident Id Agentic Access](https://apis.io/agentic-access/evident-id/evident-id-agentic-access/)
 
-- Verification
-- Requests
-- VerifyAPI
+#### Collections (4)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://www.evidentid.com/api-documentation-developers/)
-- [API Reference](https://docs.evidentid.com/v1)
-- [OpenAPI](openapi/evident-id-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/evident-id.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/evident-id.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Evident VerifyAPI and SubmitAPI](https://apis.io/collections/evident-id/open-evident-id/)
+- [Evident VerifyAPI and Submit Results API](https://apis.io/collections/evident-id/open-evident-id-results-api/)
+- [Evident VerifyAPI and Submit Results Submission API](https://apis.io/collections/evident-id/open-evident-id-submission-api/)
+- [Evident VerifyAPI and Submit Results Verification Requests API](https://apis.io/collections/evident-id/open-evident-id-verification-requests-api/)
 
-### Evident Attributes & Credentials API
+#### Security (2)
 
-SubmitAPI accepts the personal data and credentials needed to satisfy a verification request (for example name and certificate number for a certification attribute), authenticated with the userIdentityToken bearer token returned by VerifyAPI.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://www.evidentid.com/api-documentation-developers/](https://www.evidentid.com/api-documentation-developers/)
-- **Base URL:** `https://submit.api.evidentid.com/api/v1`
+- [Evident Id Authentication](https://apis.io/security/evident-id/evident-id-authentication/)
+- [Evident Id Domain Security](https://apis.io/security/evident-id/evident-id-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Attributes
-- Credentials
-- Submission
+Published plans, tiers and prices.
 
-#### Properties
+- [Evident Id Plans Pricing](https://apis.io/plans/evident-id/evident-id-plans-pricing/)
 
-- [Documentation](https://www.evidentid.com/api-documentation-developers/)
-- [API Reference](https://docs.evidentid.com/v1)
-- [OpenAPI](openapi/evident-id-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/evident-id.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/evident-id.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Evident Identity Assurance API
+Published request limits.
 
-Identity, background, and credential assurance expressed as verifiable attributes - the platform can verify thousands of attributes about an individual drawn from authoritative data sources through a single API.
+- [Evident Id Rate Limits](https://apis.io/rate-limits/evident-id/evident-id-rate-limits/)
 
-- **Human URL:** [https://www.evidentid.com/api-documentation-developers/](https://www.evidentid.com/api-documentation-developers/)
-- **Base URL:** `https://verify.api.evidentid.com/api/v1`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Identity
-- Assurance
-- Background Check
+- [Evident Id Finops](https://apis.io/finops/evident-id/evident-id-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://www.evidentid.com/api-documentation-developers/)
-- [API Reference](https://docs.evidentid.com/v1)
-- [OpenAPI](openapi/evident-id-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/evident-id.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/evident-id.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Evident Insurance & COI Verification API
-
-Insurance, contract, and Certificate of Insurance (COI) verification modeled as verification-request attributes, enabling automated checks of coverage and credentials on suppliers and third parties.
-
-- **Human URL:** [https://www.evidentid.com/api-documentation-developers/](https://www.evidentid.com/api-documentation-developers/)
-- **Base URL:** `https://verify.api.evidentid.com/api/v1`
-
-#### Tags
-
-- Insurance
-- COI
-- Certificate of Insurance
-
-#### Properties
-
-- [Documentation](https://www.evidentid.com/api-documentation-developers/)
-- [API Reference](https://docs.evidentid.com/v1)
-- [OpenAPI](openapi/evident-id-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/evident-id.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/evident-id.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Evident Results API
-
-Retrieve the status and results of a verification request. Each requested attribute is paired with a result object carrying a status, type, and a values array whose first value reflects the most recent fact-checked submission.
-
-- **Human URL:** [https://www.evidentid.com/api-documentation-developers/](https://www.evidentid.com/api-documentation-developers/)
-- **Base URL:** `https://verify.api.evidentid.com/api/v1`
-
-#### Tags
-
-- Results
-- Status
-- Reports
-
-#### Properties
-
-- [Documentation](https://www.evidentid.com/api-documentation-developers/)
-- [API Reference](https://docs.evidentid.com/v1)
-- [OpenAPI](openapi/evident-id-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/evident-id.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/evident-id.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Evident Webhooks API
-
-Webhook callbacks notify your server of request lifecycle events - rpRequestCreated, rpRequestSubmissionCompleted, rpRequestCompleted, rpRequestTimeout, and notificationFailure - each payload carrying an eventType and the rpRequestId.
-
-- **Human URL:** [https://www.evidentid.com/api-documentation-developers/](https://www.evidentid.com/api-documentation-developers/)
-- **Base URL:** `https://verify.api.evidentid.com/api/v1`
-
-#### Tags
-
-- Webhooks
-- Events
-- Notifications
-
-#### Properties
-
-- [Documentation](https://www.evidentid.com/api-documentation-developers/)
-- [API Reference](https://docs.evidentid.com/v1)
-- [OpenAPI](openapi/evident-id-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/evident-id.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/evident-id.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/evidentid)
-- [LinkedIn](https://www.linkedin.com/company/evident-id)
 - [Website](https://www.evidentid.com)
 - [Documentation](https://docs.evidentid.com/v1)
-- [Plans](plans/evident-id-plans-pricing.yml)
-- [Rate Limits](rate-limits/evident-id-rate-limits.yml)
-- [Fin Ops](finops/evident-id-finops.yml)
+- [GitHub](https://github.com/evidentid)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 25.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 47.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.5** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/evident-id/](https://apis.io/providers/evident-id/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Evident: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/evident-id/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
